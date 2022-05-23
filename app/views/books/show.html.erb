@@ -1,1 +1,22 @@
-<p>Book detail</p>
+<%= render 'books/list', user: @user, book: @book %>
+
+<div class="col-md-8 offset-md-1">
+<h2>Book detail</h2>
+
+<div class="table table-hover rable-inverse">
+
+<%= link_to user_path(@user.id) do %>
+<p><%= image_tag @book.user.get_profile_image(100,100) %></p>
+<p><%= @user.name %></p>
+<% end %>
+
+<span><%= link_to @book.title ,book_path(@book.id) %></span>
+<span><%= @book.body %></span>
+
+<% if @book.user == current_user %>
+    <%= link_to "Edit", edit_book_path(@book.id) %>
+    <%= link_to "Destroy", book_path(@book.id), method: :delete %>
+  <% end %>
+
+ </div>
+</div>
