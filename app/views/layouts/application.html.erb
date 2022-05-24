@@ -47,6 +47,7 @@
           </li>
           <li class="nav-item">
             <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-dark' %>
+            
           </li>
         <% end %>
            </ul>
@@ -54,7 +55,7 @@
         </div>
       </nav>
       </header>
-
+      <%= flash[:notice] %>
         <%= yield %>
       <footer>
         <p>CopyRight Infratop.inc</p>
