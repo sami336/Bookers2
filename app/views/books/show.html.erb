@@ -1,22 +1,37 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
 <%= render 'books/list', user: @user, book: @new_book %>
 
 <div class="col-md-8 offset-md-1">
-<h2>Book detail</h2>
+<h4>Book detail</h4>
 
-<div class="table table-hover rable-inverse">
-
-<%= link_to user_path(@user.id) do %>
-<p><%= image_tag @book.user.get_profile_image(100,100) %></p>
-<p><%= @user.name %></p>
-<% end %>
-
-<span><%= link_to @book.title ,book_path(@book.id) %></span>
-<span><%= @book.body %></span>
-
-<% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book.id) %>
-    <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
-  <% end %>
-
- </div>
+<table class="table">
+ <thead>
+     <tr>
+         <th></th>
+         <th>Title</th>
+         <th>Opinion</th>
+         <th colspan="3"></th>
+     </tr>
+ </thead>
+ <tbody>
+     <tr>
+         <td>
+             <%= link_to user_path(@user.id) do %>
+              <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
+              <p><%= @user.name %></p>
+             <% end %>
+         </td>
+         <td><%= link_to @book.title ,book_path(@book.id) %></td>
+         <td><%= @book.body %></td>
+         <% if @book.user == current_user %>
+         <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
+         <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %></td>
+         <% end %>
+         </tr>
+     </tbody>
+   </table>
+   </div>
+  </div>
+  </div>
 </div>
