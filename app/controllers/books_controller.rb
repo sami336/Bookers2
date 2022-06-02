@@ -39,7 +39,7 @@ class BooksController < ApplicationController
     if @book.user == current_user
       render :edit
     else
-      redirect_to books_path
+      render :index
     end
   end
 
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       redirect_to book_path(@book.id), notice: "You have updated book successfully."
     else
-      render :edit
+      render :index
     end
   end
 
