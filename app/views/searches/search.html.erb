@@ -1,22 +1,23 @@
-<h2>Books serch for</h2>
-
-<table class="table table-hover table-inverse">
+<% if @range == 'user' %>
+	<h3>Users search for "<%= @word %>"</h3>
+	<table class="table table-hover table-inverse">
   <thead>
   <tr>
     <th>Name</th>
-    <th></th>
     <th colspan="3"></th>
   </tr>
-</thead>
-  <% if @range == "User" %>
+  </thead>
     <tbody>
       <% @users.each do |user| %>
         <tr>
           <td><%= user.name %></td>
         </tr>
       <% end %>
-    </tbody>
-  <% else %>
+  </tbody>
+  </table>
+  <% elsif @range == 'book' %>
+	<h3>Books search for "<%= @word %>"</h3>
+	<table class="table table-hover table-inverse">
   <thead>
     <tr>
     <th></th>
